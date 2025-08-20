@@ -1,4 +1,8 @@
-{$DOMAIN} {
+{
+  auto_https off
+}
+
+http://{$DOMAIN} {
 	import snippets/Logging
 
 	# Traffic Analytics service
