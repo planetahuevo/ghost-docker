@@ -9,7 +9,10 @@
 
 	# Default proxy everything else to Ghost
 	handle {
-		reverse_proxy ghost:2368
+		reverse_proxy ghost:2368 { 
+            header_up X-Forwarded-Proto {http.request.header.X-Forwarded-Proto} 
+            header_up X-Forwarded-Host {http.request.header.Host} 
+        }
 	}
 
 	# Optional: Enable gzip compression
